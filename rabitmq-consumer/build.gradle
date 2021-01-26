@@ -1,0 +1,44 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")  // spring boot gradle plugin will used for generate jar
+    	
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+description = "Spring boot Gradle Example"
+
+apply plugin: 'java'                                // plugin for java
+apply plugin: 'org.springframework.boot'            // plugin for spring boot framework
+
+jar {
+    baseName = 'rabbitmq-consumer'             // jar file name
+    version =  '1.0.0'                                  // application version
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")     // web application dependency
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.3.7.RELEASE'
+	compile group: 'org.json', name: 'json', version: '20200518'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.0'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.0'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.4'
+	
+}
+
+sourceCompatibility = 1.8                               // for Java 1.8
+targetCompatibility = 1.8
+
+group 'com.demo'
+version '1.0-SNAPSHOT'
+
+
+
+

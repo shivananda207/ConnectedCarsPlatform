@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      
+      <link href = "css/styles.css" rel = "stylesheet"/>
+      
+      <!-- Latest compiled and minified Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+
+		<!-- Your file css -->
+		<link rel="stylesheet" href="your-file-css.css" />
+      
+      
+      <title>Demo screen</title>
+   </head>
+   <body>
+   <div class="container-fluid">
+     <h3> select city  </h3>
+  <form action="#" th:action="@{/submitform}" th:object="${command}" method="post">
+   
+   <div class="drop-content">
+   <select th:field="*{dropdownSelectedValue}">
+  <option 
+      th:each="dropdownValue: ${singleSelectAllValues}"
+      th:value="${dropdownValue}"
+      th:text="${dropdownValue}" ></option>
+</select>
+		</div>
+			<h3> select fuel tank lid status </h3>
+		<ul>
+  <li th:each="radioValue: ${lidStatus}">
+    <input type="radio" 
+        th:field="*{radioButtonSelectedValue}"
+        th:value="${radioValue}"/>
+    <label 
+        th:for="${#ids.prev('radioButtonSelectedValue')}"
+        th:text="${radioValue}"></label>
+  </li>
+</ul>
+	   <button class="btn btn-success"  type="submit" >Submit</button> 
+	   
+
+
+
+</form>
+        </div>
+   </body>
+</html>

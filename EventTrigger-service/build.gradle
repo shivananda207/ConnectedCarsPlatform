@@ -1,0 +1,47 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")  // spring boot gradle plugin will used for generate jar
+    	
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+description = "Spring boot Gradle Example"
+
+apply plugin: 'java'                                // plugin for java
+apply plugin: 'org.springframework.boot'            // plugin for spring boot framework
+
+jar {
+    baseName = 'eventtrigger-service'             // jar file name
+    version =  '1.0.0'                                  // application version
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")     // web application dependency
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	//Compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+	 compileOnly 'org.projectlombok:lombok'  
+  	annotationProcessor 'org.projectlombok:lombok'
+  	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.3.4.RELEASE'
+  	
+	
+}
+
+sourceCompatibility = 1.8                               // for Java 1.8
+targetCompatibility = 1.8
+
+group 'com.demo'
+version '1.0-SNAPSHOT'
+
+
+
+
