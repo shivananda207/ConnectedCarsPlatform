@@ -8,6 +8,8 @@ Development environment
 To run application
 1.	Pull rabbitmq docker image, run rabbitmq  
     docker run -it -d --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+    
+  Build java source code using gradle (from project folder run 'gradlew build --refesh-dependencies' this will generate jar in build/libs folder )
 2.	Run rabitmq sender using jar 
 3.	Run rabitmq-consumer  using jar 
 4.	Run  eventtrigger using jar
